@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin-css.css">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+
+    <div class="body-div">
+
+        <h1>Applications</h2>
+
+            <div class="sections-wrapper">
+
+                <section class="section accepted-section">
+
+                    <h2>Accepted List</h2>
+
+                    <div class="section-list">
+                        <div>Accepted Application No: 2019</div>
+                    </div>
+
+                </section>
+
+                <section class="section pending-section">
+
+                    <h2>Pending List</h2>
+
+                    <div class="section-list-pending">
+                        <div>
+                            <button id="pending-application-btn" class="pending-application-btn">Edit Application No: 1234</button>
+                        </div>
+                    </div>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+
+                            <span class="close">&times;</span>
+
+                            <button class="accept-btn modal-btn" id="accept-btn">Accept</button>
+                            <div id="reg-num-input" class="modal-div">
+                                <input type="number" placeholder="Registration Number" class="modal-input" name="registration-number">
+                                <input type="submit" class="modal-btn">
+                            </div>
+
+                            <button class="reject-btn modal-btn" id="reject-btn">Reject</button>
+                            <div id="rej-reason-input" class="modal-div">
+                                <input type="text" name="reject-reason" placeholder="Reason for Rejection" class="modal-input" name="reject-reason">
+                                <input type="submit" class="modal-btn">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="section rejected-section">
+                    <h2>Rejected List</h2>
+
+                    <div class="section-list">
+                        <div>Rejected Application No: 2020</div>
+                    </div>
+
+                </section>
+
+            </div>
+
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("pending-application-btn");
+        var span = document.getElementsByClassName("close")[0];
+        var acc_btn = document.getElementById("accept-btn");
+        var rej_btn = document.getElementById("reject-btn");
+        var accept_div = document.getElementById("reg-num-input");
+        var reject_div = document.getElementById("rej-reason-input");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+            rej_btn.style.display = "inline-block";
+            acc_btn.style.display = "inline-block";
+            accept_div.style.display = "none";
+            reject_div.style.display = "none";
+        }
+
+        acc_btn.onclick = function() {
+            accept_div.style.display = "block";
+            rej_btn.style.display = "none";
+            acc_btn.style.display = "none";
+        }
+
+        rej_btn.onclick = function() {
+            reject_div.style.display = "block";
+            acc_btn.style.display = "none";
+            rej_btn.style.display = "none";
+        }
+
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                accept_div.style.display = "none";
+                reject_div.style.display = "none";
+                rej_btn.style.display = "inline-block";
+                acc_btn.style.display = "inline-block";
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
